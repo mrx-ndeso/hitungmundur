@@ -12,8 +12,8 @@ body {
     background-image: url('https://ipol.id/wp-content/uploads/2024/02/IMG-20240222-WA0071.jpg');
     background-size: cover;
     background-position: center;
-    width: 1000px; /* ubah ukuran lebar */
-    height: 1000px;
+    width: 100vh; /* ubah ukuran lebar */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
