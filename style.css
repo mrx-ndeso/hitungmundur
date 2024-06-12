@@ -5,14 +5,15 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
     margin: 0;
 }
 .back {
     background-image: url('https://ipol.id/wp-content/uploads/2024/02/IMG-20240222-WA0071.jpg');
     background-size: cover;
     background-position: center;
-    width: 100vw; /* ubah ukuran lebar */
-    height: 100vh;
+    width: 1000px; /* ubah ukuran lebar */
+    height: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,6 +31,8 @@ body {
 }
 
 .countdown-container {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     color: #ffffff; /* Ubah warna teks menjadi putih agar kontras dengan latar belakang */
 }
@@ -38,7 +41,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 #countdown div {
@@ -51,17 +54,16 @@ body {
     margin-bottom: 20px;
 }
 #countdown {
+    display: flex;
+    flex-wrap: wrap;
     padding-top: 1em;
-    font-size: 3em;
+    font-size: 20px;
     font-style: normal;
     color: #e9e8e8;
     font-family: "Orbitron", sans-serif;
 }
 
-h1, h2 {
-    margin: 10px 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Menambahkan bayangan teks untuk memperjelas */
-}
+
 
 #export-button {
     margin-top: 20px;
@@ -73,39 +75,34 @@ h1, h2 {
     cursor: pointer;
 }
 .logo {
-    width: 60px;
-    height: 60px;
+    width: 5%;
+    height: 5%;
 }
 
 #export-button:hover {
     background-color: #45a049; /* Warna hijau yang sedikit lebih gelap saat hover */
 }
 .top-view {
-    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 .ppk {
-    display: flex;
+    
 }
-.ppk span {
-    text-align: left;
-    align-items: center;
-    padding-left: 1em;
-    font-size: 20px;
-}
+
 .pct1 {
-    display: flex;
-    align-items: end;
-    margin-left: 1em;
-    width: 20%;
+    width: 10%;
 }
 
 .isi {
+    align-items: center;
     padding-top: 2em;
     color: #ffa600;
 }
 .jatim{
-    width: 100px;
+    width: 10%;
 }
 .pacitan {
-    width: 100px;
+    width: 10%;
 }
+
