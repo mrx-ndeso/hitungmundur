@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Timer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<div class="back">
-    <div class="overlay">
-        <div class="countdown-container">
-            <div class="top-view">
-                <img src="Logo.png" alt="Logo" class="logo">
-                <span>PPK ARJOSARI</span>
+    <div class="back">
+        <div class="overlay">
+            <div class="countdown-container">
+                <div class="top-view">
+                    <div class="ppk">
+                        <img src="Logo.png" alt="Logo" class="logo">
+                        <span>Panitia Pemilihan Kecamatan <br> Kecamatan Arjosari</span>
+                        <img src="pacitan-1.png" alt="pct1" class="pct1">
+                    </div>
+                </div>
+                <div class="isi">
+                    <div id="current-date">
+                        <div><span id="current-day"></span></div>
+                        <div><span id="current-time"></span></div>
+                    </div>
+                    <h1>MENUJU PEMUNGUTAN SUARA PILKADA</h1>
+
+                    <div id="countdown">
+                        <img src="jatim.png" alt="jatim" class="jatim">
+                        <div><span id="days"></span>Hari</div>
+                        <div><span id="hours"></span>Jam</div>
+                        <div><span id="minutes"></span>Menit</div>
+                        <div><span id="seconds"></span>Detik</div>
+                        <img src="pacitan.png" alt="pacitan" class="pacitan">
+                    </div>
+                    <h2>Rabu, 27 November 2024, 07:00 AM</h2>
+                </div>
             </div>
-            <div id="current-date">
-                <div><span id="current-day"></span></div>
-                <div><span id="current-time"></span></div>
-            </div>
-            <h2>MENUJU PEMUNGUTAN SUARA</h2>
-            <h2>PILKADA 2024</h2>
-            <h2>Rabu, 27 November 2024, 07:00 AM</h2>
-            <div id="countdown">
-                <div><span id="days"></span>Hari</div>
-                <div><span id="hours"></span>Jam</div>
-                <div><span id="minutes"></span>Menit</div>
-                <div><span id="seconds"></span>Detik</div>
-            </div>
+
         </div>
+
     </div>
-</div>
-<button id="export-button">Export Gambar</button>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script> src = "script.js"</script>
+    <button id="export-button">Export Gambar</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

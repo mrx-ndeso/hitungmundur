@@ -20,7 +20,7 @@ body {
 }
 
 .overlay {
-    background-color: rgba(0, 0, 0, 0.7); /* overlay dengan opacity 70% */
+    background-color: rgba(0, 0, 0, 0.8); /* overlay dengan opacity 70% */
     width: 100%;
     height: 100%;
     display: flex;
@@ -41,18 +41,21 @@ body {
     font-size: 1.5em;
 }
 
-#countdown div, #current-date div {
+#countdown div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    backdrop-filter: blur(0); /* Menghilangkan efek blur pada teks */
 }
 
 #current-date {
     margin-bottom: 20px;
 }
 #countdown {
-    font-size: 2em;
+    padding-top: 1em;
+    font-size: 3em;
+    font-style: normal;
+    color: #e9e8e8;
+    font-family: "Orbitron", sans-serif;
 }
 
 h1, h2 {
@@ -70,10 +73,38 @@ h1, h2 {
     cursor: pointer;
 }
 .logo {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
 }
 
 #export-button:hover {
     background-color: #45a049; /* Warna hijau yang sedikit lebih gelap saat hover */
+}
+.top-view {
+    margin: 0;
+}
+.ppk {
+    display: flex;
+}
+.ppk span {
+    text-align: left;
+    align-items: center;
+    padding-left: 1em;
+    font-size: 20px;
+}
+.pct1 {
+    display: flex;
+    margin-left: 1em;
+    width: 20%;
+}
+
+.isi {
+    padding-top: 2em;
+    color: #ffa600;
+}
+.jatim{
+    width: 100px;
+}
+.pacitan {
+    width: 100px;
 }
