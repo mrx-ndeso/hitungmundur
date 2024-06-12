@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .back {
+            background-image: url('https://ipol.id/wp-content/uploads/2024/02/IMG-20240222-WA0071.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100vw; /* ubah ukuran lebar */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.7); /* overlay dengan opacity 70% */
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown-container {
+            text-align: center;
+            color: #ffffff; /* Ubah warna teks menjadi putih agar kontras dengan latar belakang */
+        }
+
+        #countdown, #current-date {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.5em;
+        }
+
+        #countdown div, #current-date div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(0); /* Menghilangkan efek blur pada teks */
+        }
+
+        #current-date {
+            margin-bottom: 20px;
+        }
+        #countdown {
+            font-size: 2em;
+        }
+
+        h1, h2 {
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Menambahkan bayangan teks untuk memperjelas */
+        }
+
+        #export-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Warna hijau */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        #export-button:hover {
+            background-color: #45a049; /* Warna hijau yang sedikit lebih gelap saat hover */
+        }
+    </style>
+</head>
+<body>
+<div class="back">
+    <div class="overlay">
+        <div class="countdown-container">
+            <div class="top-view">
+                <img src="" alt="Logo" class="logo">
+                <span>PPK ARJOSARI</span>
+            </div>
+            <div id="current-date">
+                <div><span id="current-day"></span></div>
+                <div><span id="current-time"></span></div>
+            </div>
+            <h2>MENUJU PEMUNGUTAN SUARA</h2>
+            <h2>PILKADA 2024</h2>
+            <h2>Rabu, 27 November 2024, 07:00 AM</h2>
+            <div id="countdown">
+                <div><span id="days"></span>Hari</div>
+                <div><span id="hours"></span>Jam</div>
+                <div><span id="minutes"></span>Menit</div>
+                <div><span id="seconds"></span>Detik</div>
+            </div>
+        </div>
+    </div>
+</div>
+<button id="export-button">Export Gambar</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    // Function to update the current date and time
+    function updateCurrentDateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const currentDate = now.toLocaleDateString('id-ID', options);
+        const currentTime = now.toLocaleTimeString('id-ID');
+
+        document.getElementById('current-day').innerHTML = currentDate;
+        document.getElementById('current-time').innerHTML = currentTime;
+    }
+
+    // Set the date we're counting down to
+    const countDownDate = new Date("Nov 27, 2024 07:00:00").getTime();
+
+    // Update the count down every 1 second
+    const x = setInterval(function() {
+        // Get today's date and time
+        const now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        const distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="countdown"
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        // Update the current date and time
+        updateCurrentDateTime();
+
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+
+    // Function to export the HTML as an image
+    document.getElementById('export-button').addEventListener('click', function() {
+        console.log("Tombol Export Gambar Ditekan!"); // console log
+        html2canvas(document.querySelector(".back"), { 
+            logging: true, // Aktifkan logging untuk debug
+            allowTaint: true, // Izinkan gambar dari sumber lintas asal
+            useCORS: true // Gunakan CORS untuk permintaan gambar
+        }).then(canvas => {
+            const img = canvas.toDataURL();
+            const link = document.createElement('a');
+            link.download = 'countdown_image.png';
+            link.href = img;
+            link.click();
+        }).catch(error => {
+            console.error('Gagal mengonversi gambar:', error);
+        });
+    });
+</script>
+</body>
+</html>
