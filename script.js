@@ -52,7 +52,7 @@ document.getElementById('export-button').addEventListener('click', function() {
     }).then(canvas => {
         const img = canvas.toDataURL();
         const link = document.createElement('a');
-        link.download = 'countdown_image.png';
+        link.download = 'countdown_ppk_arjosari.png';
         link.href = img;
         link.click();
     }).catch(error => {
