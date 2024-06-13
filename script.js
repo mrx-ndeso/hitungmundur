@@ -42,15 +42,24 @@ const x = setInterval(function() {
     }
 }, 1000);
 
-// Function to export the HTML as an image
 document.getElementById('export-button').addEventListener('click', function() {
     console.log("Tombol Export Gambar Ditekan!"); // console log
     html2canvas(document.querySelector(".back"), { 
         logging: true, // Aktifkan logging untuk debug
         allowTaint: true, // Izinkan gambar dari sumber lintas asal
-        useCORS: true // Gunakan CORS untuk permintaan gambar
+        useCORS: true, // Gunakan CORS untuk permintaan gambar
+        scale: 10 // Menambah skala untuk resolusi lebih tinggi
     }).then(canvas => {
-        const img = canvas.toDataURL();
+        // Buat elemen canvas baru dengan ukuran lebih besar
+        const scaledCanvas = document.createElement('canvas');
+        const context = scaledCanvas.getContext('2d');
+        scaledCanvas.width = canvas.width;
+        scaledCanvas.height = canvas.height;
+
+        // Gambar gambar yang sudah di-scaling ke canvas baru
+        context.drawImage(canvas, 0, 0);
+
+        const img = scaledCanvas.toDataURL();
         const link = document.createElement('a');
         link.download = 'countdown_ppk_arjosari.png';
         link.href = img;
