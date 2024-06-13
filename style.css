@@ -48,9 +48,7 @@ body {
     align-items: center;
 }
 
-#current-date {
-    
-}
+
 #countdown {
     display: flex;
     flex-wrap: wrap;
@@ -94,7 +92,7 @@ body {
 .isi {
     align-items: center;
     padding-top: 2em;
-    color: #ffa600;
+    color: #fcb125;
 }
 .jatim{
     width: 100px;
