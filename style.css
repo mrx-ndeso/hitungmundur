@@ -55,9 +55,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding-top: 1.2em;
-    font-size: 20px;
+    font-size: 8spx;
     font-style: normal;
-    color: #e9e8e8;
+    color: #fafafa;
     font-family: "Orbitron", sans-serif;
 }
 
@@ -88,7 +88,7 @@ body {
 
 
 .pct1 {
-    width: 10%;
+    width: 100px;
 }
 
 .isi {
@@ -97,10 +97,10 @@ body {
     color: #ffa600;
 }
 .jatim{
-    width: 10%;
+    width: 100px;
 }
 .pacitan {
-    width: 10%;
+    width: 100px;
 }
 
 .logos {
@@ -108,4 +108,8 @@ body {
 }
 .menuju {
     padding-bottom:1em;
+}
+
+#countdown div span {
+    font-size: 35px;
 }
