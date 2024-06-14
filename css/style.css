@@ -26,7 +26,7 @@ a {
 }
 
 .link {
-    background-color: #c03a3a;
+    background-color: #054a94;
     display: block;
     /* Membuat setiap link menjadi blok untuk ditampilkan ke bawah */
     margin: 10px 0;
@@ -48,6 +48,7 @@ a {
 /* Mengatur gaya untuk link saat dihover */
 .link:hover {
     background-color: #007BFF;
+    width: 310px
     /* Warna teks saat dihover */
 }
 
