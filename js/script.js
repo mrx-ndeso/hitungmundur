@@ -1,4 +1,4 @@
-const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTYD4OHizhLpv4owqAldeFT4DKkIllo9czWtYdBL1bx48uOhSKcHI77qRI4AzIi3or_NVDNCVfUtw8O/pub?output=csv'; // URL spreadsheet sebagai CSV
+const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTYD4OHizhLpv4owqAldeFT4DKkIllo9czWtYdBL1bx48uOhSKcHI77qRI4AzIi3or_NVDNCVfUtw8O/pub?output=csv'; // Ganti dengan URL CSV Anda
 
 // Fungsi untuk mengambil data dari spreadsheet
 async function fetchSpreadsheetData() {
@@ -20,11 +20,16 @@ function updateLinks(data) {
     linksContainer.innerHTML = ''; // Menghapus tautan yang sudah ada
 
     data.forEach(([label, link], index) => {
-        if (index !== 0 && label && link) { // Melewati baris header dan memvalidasi data
+        // Memvalidasi data dan melewati baris yang tidak lengkap
+        if (label && link) {
+            // Memastikan URL dimulai dengan http:// atau https://
+            const url = link.startsWith('http://') || link.startsWith('https://') ? link : `http://${link}`;
+
             const anchor = document.createElement('a');
             anchor.textContent = label;
-            anchor.href = link;
+            anchor.href = url;
             anchor.classList.add('link');
+            anchor.target = '_blank'; // Membuka tautan di tab baru
             linksContainer.appendChild(anchor);
         }
     });
